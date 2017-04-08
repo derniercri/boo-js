@@ -1,0 +1,17 @@
+{
+  "name": "boo-js",
+  "version": "1.0.0",
+  "description": "Boo is an Home Automation server",
+  "main": "src/app.js",
+  "scripts": {
+    "flow": "flow",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Guillaume Bailleul <laibulle@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.43.1"
+  }
+}
