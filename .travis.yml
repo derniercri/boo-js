@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - "7"
+
+services:
+  - docker
+
+before_install:
+  - sudo apt-get install build-essential -y
+  - sudo apt-get install cmake libboost-dev libboost-thread-dev libboost-system-dev libsqlite3-dev subversion curl libcurl4-openssl-dev libusb-dev zlib1g-dev libssl-dev git
+  - sudo apt-get install libudev-dev
+  - git clone https://github.com/OpenZWave/open-zwave.git
+  - ln -s open-zwave-read-only open-zwave
+  - cd open-zwave
+  - make
+  - sudo make install
+  - cd ..
+  #- sudo apt-get install openzwave -y
+
+after_success:
+  #- if [ "$TRAVIS_BRANCH" == "docker" ]; then
+  #  docker build -t laibulle/boo:$TRAVIS_BRANCH .
+  #  docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  #  docker push laibulle/boo:$TRAVIS_BRANCH;
+  #  fi
+  - npm run build
+  - docker build -t laibulle/boo:BUILD_$TRAVIS_BUILD_NUMBER .
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push laibulle/boo:BUILD_$TRAVIS_BUILD_NUMBER
