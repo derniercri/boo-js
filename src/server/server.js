@@ -28,7 +28,7 @@ const port = 3000;
 let logger = new winston.Logger({
   level: 'debug',
   transports: [
-    new (winston.transports.Console)({ colorize: true }),
+    new (winston.transports.Console)({ colorize: true, timestamp: true }),
   ]
 });
 
