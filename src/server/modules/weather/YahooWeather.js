@@ -45,8 +45,8 @@ export default class YahooWeather {
       if (info != null) {
         let weather = new Weather('yahoo', 'Yahoo Weather');
         weather.set(
-          parseTime(info.astronomy.sunrise),
           parseTime(info.astronomy.sunset),
+          parseTime(info.astronomy.sunrise),
           parseInt(info.item.condition.temp),
           info.item.condition.code,
           info.item.condition.text,
