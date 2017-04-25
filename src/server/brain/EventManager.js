@@ -41,7 +41,7 @@ export default class EventManager {
 
     this.componentManager.getAllByType(WEATHER_TYPE).map((item) => {
       if (item.values.sunset != null && item.values.sunrise != null) {
-        if (self.updateState(SUNSET, event.time.diff(moment(item.values.sunset)) > 0)) {
+        if (self.updateState(SUNSET, !(getTime(event.time) > getTime(moment(item.values.sunrise))  && getTime(event.time) < getTime(moment(item.values.sunset))) )) {
           // Find SUNSET or SUNRISE events
           const lookup = this.state.sunset == true ?
             TRIGGER_SUNSET :
@@ -74,4 +74,8 @@ export default class EventManager {
   getState(key: string): any {
     return this.state[key];
   }
+}
+
+export function getTime(time: moment): number {
+  return 60 * 60 * time.hours() + 60 * time.minutes() + time.seconds()
 }

@@ -1,4 +1,4 @@
-import EventManager from './../../../src/server/brain/EventManager';
+import EventManager, { getTime } from './../../../src/server/brain/EventManager';
 import ComponentManager from './../../../src/server/brain/memory/ComponentManager';
 import { TimeChangeEvent } from './../../../src/sdk/Event';
 import { Weather } from './../../../src/sdk/Component';
@@ -15,12 +15,16 @@ test('test Sunrise and Sunset', () => {
 
   expect(eventManager.state.sunset).toBe(null);
 
-  const event1 = new TimeChangeEvent(new Moment('2014-02-27T11:00:00'));
-  eventManager.handle(event1, []);
+  eventManager.handle(new TimeChangeEvent(new Moment('2014-02-27T11:00:00')), []);
   expect(eventManager.state.sunset).toBe(false);
 
 
-  const event2 = new TimeChangeEvent(new Moment('2014-02-27T23:00:00'));
-  eventManager.handle(event2, []);
+  eventManager.handle(new TimeChangeEvent(new Moment('2014-02-27T23:00:00')), []);
   expect(eventManager.state.sunset).toBe(true);
+
+  // Change day
+  weather.values.sunrise = '2014-03-27T10:00:00';
+  weather.values.sunset = '2014-03-27T22:00:00';
+  eventManager.handle(new TimeChangeEvent(new Moment('2014-02-27T23:00:00')), []);
+  expect(eventManager.state.sunset).toBe(true)
 });
