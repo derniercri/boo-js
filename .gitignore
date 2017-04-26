@@ -5,3 +5,4 @@ scenes.json
 triggers.json
 .DS_Store
 _site
+.sass-cache
