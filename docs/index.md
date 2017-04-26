@@ -34,6 +34,11 @@ npm install -g pm2
 pm2 startup
 ```
 
+Setup the correct timezone
+```
+dpkg-reconfigure tzdata
+```
+
 Install Boo
 ```
 git clone https://github.com/derniercri/boo-js.git -b master

@@ -4,7 +4,7 @@ import Moment from 'moment';
 
 export const TIME_CHANGE = 'TIME_CHANGE';
 
-export default class Event {
+export class Event {
     type: string;
     constructor(type: string) {
       this.type = type;

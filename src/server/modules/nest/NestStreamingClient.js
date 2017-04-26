@@ -2,7 +2,7 @@
 
 //import * as firebase from 'firebase';
 import Firebase from 'firebase';
-import Sdk from './../../../sdk/Sdk';
+import { Sdk } from './../../../sdk';
 var authToken = 'some_long_auth_token';
 
 export default class NestStreamingClient {

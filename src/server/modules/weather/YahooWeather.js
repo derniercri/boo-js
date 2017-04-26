@@ -1,10 +1,13 @@
 // @flow
 
-import Info from './../../../sdk/Info';
-import Sdk from './../../../sdk/Sdk';
-import { Component } from './../../../sdk/Component';
-import { Configuration, ConfigurationField } from './../../../sdk/Configuration';
-import { Weather } from './../../../sdk/Component';
+import {
+  Info,
+  Sdk,
+  Component,
+  Configuration,
+  ConfigurationField,
+  Weather
+} from './../../../sdk';
 import weather from 'yahoo-weather';
 import moment from 'moment';
 

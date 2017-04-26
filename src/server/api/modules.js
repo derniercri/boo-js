@@ -1,7 +1,7 @@
 // @flow
 
 import Brain from './../brain/Brain';
-import { Module } from './../../sdk/Module';
+import { Module } from './../../sdk';
 import type { $Request, $Response } from 'express';
 
 export default (brain: Brain) => {

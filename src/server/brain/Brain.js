@@ -1,13 +1,18 @@
 // @flow
 
-import { Module } from './../../sdk/Module';
-import { ConfigurationField } from './../../sdk/Configuration';
-import { TimeChangeEvent } from './../../sdk/Event';
-import { StateChangeAction, Scene, parseScenes } from './../../sdk/Scene';
-import Info from './../../sdk/Info';
-import Sdk from './../../sdk/Sdk';
-import { parseGroups } from './../../sdk/Group';
-import { Component, parseComponents } from './../../sdk/Component';
+import {
+  ConfigurationField,
+  Module,
+  TimeChangeEvent,
+  StateChangeAction,
+  Scene,
+  parseScenes,
+  parseGroups,
+  parseComponents,
+  Info,
+  Component,
+  Sdk
+} from './../../sdk';
 import ModuleManager from './memory/ModuleManager';
 import ComponentManager from './memory/ComponentManager';
 import ConfigurationManager from './memory/ConfigurationManager';

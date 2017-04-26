@@ -9,7 +9,7 @@ const headers = {
   'Content-Type': 'application/json'
 }
 
-export default class BooAPI {
+export class API {
   url: string;
 
   constructor(url: string) {

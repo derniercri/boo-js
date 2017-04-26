@@ -1,6 +1,6 @@
 // @flow
 
-import { Identifiable } from './../../../sdk/Identifiable';
+import { Identifiable } from './../../../sdk';
 import fs from 'fs';
 
 export default class Manager<T: Identifiable> {

@@ -2,7 +2,7 @@
 
 import { Configuration, parseConfiguration } from './Configuration';
 
-export default class Info {
+export class Info {
   id: string;
   name: string;
   enabled: boolean;

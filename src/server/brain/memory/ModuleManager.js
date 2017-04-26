@@ -1,8 +1,6 @@
 // @flow
 
-import { Module } from './../../../sdk/Module';
-import Info from './../../../sdk/Info';
-
+import { Module, Info } from './../../../sdk';
 import Manager from './Manager';
 
 export default class ModuleManager extends Manager<Module> {

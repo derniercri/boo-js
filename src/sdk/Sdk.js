@@ -3,7 +3,7 @@
 import { Component } from './Component';
 import Winston from 'winston';
 
-export default class Sdk {
+export class Sdk {
   moduleId: string;
   logger: Winston;
   configUpdateCb: (moduleId: string, name: string, value: string) => void;

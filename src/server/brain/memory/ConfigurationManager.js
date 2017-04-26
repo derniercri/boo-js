@@ -1,8 +1,7 @@
 // @flow
 
 import fs from 'fs';
-import { Configuration } from './../../../sdk/Configuration';
-import Info from './../../../sdk/Info';
+import { Configuration, Info } from './../../../sdk';
 import Manager from './Manager';
 import uuidV4 from 'uuid/v4';
 

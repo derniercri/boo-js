@@ -1,5 +1,5 @@
 import Brain from './../brain/Brain';
-import { Weather } from './../../sdk/Component';
+import { Weather } from './../../sdk';
 import request from 'request';
 import Flickr from 'flickr-sdk';
 import type { $Request, $Response } from 'express';

@@ -1,9 +1,14 @@
 // @flow
 
-import Info from './../../../sdk/Info';
-import Sdk from './../../../sdk/Sdk';
-import { Component, Light, ColorLight } from './../../../sdk/Component';
-import { Configuration, ConfigurationField } from './../../../sdk/Configuration';
+import {
+  Info,
+  Sdk,
+  Component,
+  Light,
+  ColorLight,
+  Configuration,
+  ConfigurationField
+} from './../../../sdk';
 import hue, { HueApi } from 'node-hue-api';
 import { createComponents } from './factory';
 

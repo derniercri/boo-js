@@ -1,7 +1,7 @@
 // @flow
 
 import Brain from './../brain/Brain';
-import { Module } from './../../sdk/Module';
+import { Module } from './../../sdk';
 import ClientOAuth2, { Token } from 'client-oauth2';
 import type { $Request, $Response } from 'express';
 

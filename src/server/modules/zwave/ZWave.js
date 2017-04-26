@@ -1,9 +1,13 @@
 // @flow
 
-import { Component, Cover } from './../../../sdk/Component';
-import { Configuration, ConfigurationField } from './../../../sdk/Configuration';
-import Info from './../../../sdk/Info';
-import Sdk from './../../../sdk/Sdk';
+import {
+  Info,
+  Sdk,
+  Component,
+  Cover,
+  Configuration,
+  ConfigurationField
+} from './../../../sdk';
 import OZW from 'openzwave-shared';
 
 export default class ZWave {

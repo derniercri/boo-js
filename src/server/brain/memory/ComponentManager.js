@@ -1,6 +1,6 @@
 // @flow
 
-import { Component } from './../../../sdk/Component';
+import { Component } from './../../../sdk';
 import Manager from './Manager';
 import fs from 'fs';
 import uuidV4 from 'uuid/v4';

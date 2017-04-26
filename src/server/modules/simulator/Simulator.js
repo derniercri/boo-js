@@ -1,9 +1,11 @@
 // @flow
 
-import Info from './../../../sdk/Info';
-import Sdk from './../../../sdk/Sdk';
-import { Component } from './../../../sdk/Component';
-import { Configuration, ConfigurationField } from './../../../sdk/Configuration';
+import {
+  Info,
+  Component,
+  Configuration,
+  ConfigurationField
+} from './../../../sdk';
 
 export default class Simulator {
   getId(): string {

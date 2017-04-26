@@ -1,6 +1,6 @@
 // @flow
 
-import { Component, Light, ColorLight } from './../../../sdk/Component';
+import { Component, Light, ColorLight } from './../../../sdk';
 
 export function createComponents(object: Object): Array<Component> {
   let components: Array<Component> = [];

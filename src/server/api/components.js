@@ -1,7 +1,7 @@
 // @flow
 
 import Brain from './../brain/Brain';
-import { parseComponent } from './../../sdk/Component';
+import { parseComponent } from './../../sdk';
 import type { $Request, $Response } from 'express';
 
 export default (brain: Brain) => {
