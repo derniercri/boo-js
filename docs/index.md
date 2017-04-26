@@ -48,3 +48,69 @@ pm2 start lib/server.js
 pm2 save
 ```
 
+### API
+
+#### Modules
+
+__GET /api/v1/modules__
+
+__PUT /api/v1/modules/:id__
+
+```
+{
+	"enabled": true,
+	"configuration": {
+		"fields": [
+			{"name": "auto", "value": 3}
+		]
+	}
+}
+```
+
+#### Components
+
+__GET /api/v1/components__
+
+__PUT /api/v1/components/:id__
+
+```
+{
+	"values": {
+		"on": true
+	}
+}
+```
+
+#### Scenes
+
+__GET /api/v1/scenes__
+
+__POST /api/v1/scenes__
+
+```
+{
+	"name": "Sunrise",
+	"triggers": [
+		{"type": "SUNSET"}
+	],
+	"sequence": [
+		{"type": "STATE", "name": "position", "value": 0.1, "componentId": "a8c2e3da-5857-46a4-a5c7-1396e9ab2ecc"}
+	]
+}
+```
+
+__PUT /api/v1/scenes/:id__
+
+```
+{
+	"name": "Sunrise",
+	"triggers": [
+		{"type": "SUNSET"}
+	],
+	"sequence": [
+		{"type": "STATE", "name": "position", "value": 0.1, "componentId": "a8c2e3da-5857-46a4-a5c7-1396e9ab2ecc"}
+	]
+}
+```
+
+__DELETE /api/v1/scenes/:id__
