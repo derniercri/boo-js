@@ -1,4 +1,5 @@
 // @flow
+
 import uuidV4 from 'uuid/v4';
 
 export const ACTION_STATE_CHANGE = 'STATE';

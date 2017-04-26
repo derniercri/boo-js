@@ -1,6 +1,6 @@
 // @flow
 
-import Info from './Info';
+import { Info } from './Info';
 import { Component, parseComponents, parseComponent } from './Component';
 import { parseInfos, parseInfo } from './Info';
 import { Scene, parseScenes, parseScene } from './Scene';

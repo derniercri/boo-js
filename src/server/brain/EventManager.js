@@ -1,10 +1,17 @@
 // @flow
 
-import Event, { TimeChangeEvent, TIME_CHANGE } from './../../sdk/Event';
-import { Scene } from './../../sdk/Scene';
-import { Component, WEATHER_TYPE, Weather } from './../../sdk/Component';
+import {
+  Event,
+  TimeChangeEvent,
+  Scene,
+  Component,
+  Weather,
+  TRIGGER_SUNRISE,
+  WEATHER_TYPE,
+  TRIGGER_SUNSET,
+  TIME_CHANGE
+} from './../../sdk';
 import ComponentManager from './memory/ComponentManager';
-import { TRIGGER_SUNRISE, TRIGGER_SUNSET } from './../../sdk/Scene';
 import winston from 'winston';
 import moment from 'moment';
 

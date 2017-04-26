@@ -11,7 +11,7 @@ import {
 import weather from 'yahoo-weather';
 import moment from 'moment';
 
-type Conditions = {astronomy: {sunrise: string, sunset: string}, item: {condition: {temp: string, code: number, text: string}}};
+type ConditionsType = {astronomy: {sunrise: string, sunset: string}, item: {condition: {temp: string, code: number, text: string}}};
 
 export default class YahooWeather {
   getId(): string {
@@ -44,7 +44,7 @@ export default class YahooWeather {
   update(sdk: Sdk, location: string) {
     let self = this;
 
-    weather(location).then((info: ?Conditions) => {
+    weather(location).then((info: ?ConditionsType) => {
       if (info != null) {
         let weather = new Weather('yahoo', 'Yahoo Weather');
         weather.set(

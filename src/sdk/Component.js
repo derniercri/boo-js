@@ -8,6 +8,15 @@ export const TEMPERATURE_TYPE = 'TEMPERATURE';
 export const WEATHER_TYPE = 'WEATHER';
 export const COVER_TYPE = 'COVER';
 
+export type ValuesType = {
+  on: ?boolean,
+  brightness: ?number,
+  saturation: ?number,
+  red: ?number,
+  blue: ?number,
+  green: ?number
+};
+
 export class Component {
   id: string;
   identifier: string;

@@ -1,6 +1,6 @@
 // @flow
 
-import Info from './../../sdk/Info';
+import { Info } from './../../sdk/Info';
 
 const renderModule = (info: Info): string => {
   return info.name;

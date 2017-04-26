@@ -4,7 +4,8 @@ import {
   Info,
   Component,
   Configuration,
-  ConfigurationField
+  ConfigurationField,
+  Sdk
 } from './../../../sdk';
 
 export default class Simulator {

@@ -1,7 +1,7 @@
 // @flow
 
-import Info from './../sdk/Info';
-import Sdk from './Sdk';
+import { Info } from './Info';
+import { Sdk } from './Sdk';
 import { Component } from './Component';
 import { Configuration } from './Configuration';
 
