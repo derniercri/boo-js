@@ -36,18 +36,18 @@ export class Component {
     this.moduleId = '';
     this.type = '';
     this.values = {
-      on: null,
-      brightness: null,
-      saturation: null,
-      red: null,
-      blue: null,
-      green: null,
-      sunset: null,
-      sunset: null,
-      sunrise: null,
-      temp: null,
-      code: null,
-      position: null
+      on: undefined,
+      brightness: undefined,
+      saturation: undefined,
+      red: undefined,
+      blue: undefined,
+      green: undefined,
+      sunset: undefined,
+      sunset: undefined,
+      sunrise: undefined,
+      temp: undefined,
+      code: undefined,
+      position: undefined
     };
   }
 
