@@ -22,6 +22,7 @@ import authApi from './api/auth';
 import backgroundApi from './api/background';
 import settingsApi from './api/settings';
 import sceneApi from './api/scene';
+import voiceApi from './api/voice';
 
 const port = 3000;
 
@@ -62,6 +63,7 @@ app.post('/api/v1/scenes/:id/launch', sceneApi(brain).run);
 app.delete('/api/v1/scenes/:id', sceneApi(brain).delete);
 app.get('/api/v1/settings', settingsApi(`http://${brain.getServerId()}.laibulle.com`).getAll);
 app.get('/images/background.jpg', backgroundApi(brain).getBackground);
+app.post('/api/v1/voice', voiceApi(brain).create);
 
 let tunnel = localtunnel(
   port,

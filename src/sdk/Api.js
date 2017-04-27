@@ -16,12 +16,6 @@ export class API {
     this.url = url;
   }
 
-  getModules(): Array<Info> {
-    let modules = [];
-
-    return modules;
-  }
-
   getComponents(): Promise<Array<Component>> {
     return fetch(this.url + '/api/v1/components')
       .then((res) => {

@@ -9,6 +9,9 @@ import {
   parseScenes,
   parseGroups,
   parseComponents,
+  LIGHT_TYPE,
+  COLOR_LIGHT_TYPE,
+  COVER_TYPE,
   Info,
   Component,
   Sdk
@@ -222,4 +225,55 @@ export default class Brain {
       }
     }
   }
+
+  handleCommands(commands: Array<string>): void {
+    const self = this;
+    if (commands.length >= 3) {
+      let action = actionFind(commands)
+
+      if (action != null) {
+        const laction = action;
+        const type = typeFind(commands);
+        if (type != null) {
+          self.componentManager.getAll().map((component: Component) => {
+            if ((component.type == LIGHT_TYPE || component.type == COLOR_LIGHT_TYPE) && type == LIGHT_TYPE) {
+              component.values[laction.name] = laction.value;
+              self.updateComponent(component);
+            }
+
+            if (component.type == COVER_TYPE && type == COVER_TYPE && laction.name == 'on') {
+              component.values['position'] = laction.value ? 0.9 : 0.0;
+              self.updateComponent(component);
+            }
+          })
+        }
+      }
+    }
+  }
+}
+
+function actionFind(commands: Array<string>): ?{name: string, value: any} {
+  if (commands[0] == 'allume' || commands[0] == 'ouvre')  {
+    return {name: 'on', value: true};
+  } else if(commands[0] == 'éteins' || commands[0] == 'ferme' ) {
+    return {name: 'on', value: false};
+  }
+
+  return null;
+}
+
+function typeFind(commands: Array<string>): ?string {
+  if (commands.find((element) => {
+    return element == 'lumières' ||
+        element == 'lumière' ||
+        element ==  'lampe' ||
+        element ==  'lampes'
+  })) { return LIGHT_TYPE }
+
+  if (commands.find((element) => {
+    return element == 'volet' ||
+        element == 'volets'
+  })) { return COVER_TYPE }
+
+  return null;
 }
