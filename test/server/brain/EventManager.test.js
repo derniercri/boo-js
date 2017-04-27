@@ -16,15 +16,15 @@ test('test Sunrise and Sunset', () => {
   expect(eventManager.state.sunset).toBe(null);
 
   eventManager.handle(new TimeChangeEvent(new Moment('2014-02-27T11:00:00')), []);
-  expect(eventManager.state.sunset).toBe(false);
+  expect(eventManager.state.sunset).toBe(0);
 
 
   eventManager.handle(new TimeChangeEvent(new Moment('2014-02-27T23:00:00')), []);
-  expect(eventManager.state.sunset).toBe(true);
+  expect(eventManager.state.sunset).toBe(1);
 
   // Change day
   weather.values.sunrise = Moment('2014-03-27T10:00:00').unix();
   weather.values.sunset = Moment('2014-03-27T22:00:00').unix();
   eventManager.handle(new TimeChangeEvent(new Moment('2014-02-27T23:00:00')), []);
-  expect(eventManager.state.sunset).toBe(true)
+  expect(eventManager.state.sunset).toBe(1)
 });

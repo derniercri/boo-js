@@ -51,9 +51,9 @@ export default class EventManager {
         if (self.updateState(
           SUNSET,
           !(getTime(event.time) > getTime(moment.unix(item.values.sunrise)) &&
-            getTime(event.time) < getTime(moment.unix(item.values.sunset))) )) {
+            getTime(event.time) < getTime(moment.unix(item.values.sunset))) ? 1 : 0 )) {
           // Find SUNSET or SUNRISE events
-          const lookup = this.state.sunset == true ?
+          const lookup = this.state.sunset === 1 ?
             TRIGGER_SUNSET :
             TRIGGER_SUNRISE;
 
@@ -71,7 +71,7 @@ export default class EventManager {
     return validScenes;
   }
 
-  updateState(key: string, value: any): boolean {
+  updateState(key: string, value: number): boolean {
     if (this.state[key] != value) {
       this.state[key] = value;
       this.logger.debug(`switched ${key} to ${value}`);
@@ -81,7 +81,7 @@ export default class EventManager {
     return false;
   }
 
-  getState(key: string): any {
+  getState(key: string): ?number {
     return this.state[key];
   }
 }
