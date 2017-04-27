@@ -11,7 +11,7 @@ export default (brain: Brain) => {
       if (req.body instanceof Object && req.body.words instanceof Array) {
         brain.handleCommands(req.body.words);
         res.statusCode = 201;
-        return res.send({message: 'accepted'});
+        return res.send({message: `J'ai bien compris.`});
       }
 
       res.statusCode = 400;
