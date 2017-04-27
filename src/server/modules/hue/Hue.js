@@ -66,7 +66,10 @@ export default class Hue {
     if (component instanceof Light) {
       this.api.setLightState(
         component.identifier,
-        { 'on': component.values.on, 'bri': 255 * component.values.brightness }
+        {
+          'on': component.values.on > 0,
+          'bri': 255 * component.values.brightness
+        }
       ).then((result) => { })
         .fail((error) => { })
         .done();

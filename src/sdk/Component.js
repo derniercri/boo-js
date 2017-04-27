@@ -9,12 +9,17 @@ export const WEATHER_TYPE = 'WEATHER';
 export const COVER_TYPE = 'COVER';
 
 export type ValuesType = {
-  on: ?boolean,
+  on: ?number,
   brightness: ?number,
   saturation: ?number,
   red: ?number,
   blue: ?number,
-  green: ?number
+  green: ?number,
+  sunset: ?number,
+  sunrise: ?number,
+  temp: ?number,
+  code: ?number,
+  position: ?number
 };
 
 export class Component {
@@ -23,14 +28,27 @@ export class Component {
   moduleId: string;
   label: string;
   type: string;
-  values: Object;
+  values: ValuesType;
 
   constructor(identifier: string, label: string) {
     this.identifier = identifier;
     this.label = label;
     this.moduleId = '';
     this.type = '';
-    this.values = Object;
+    this.values = {
+      on: null,
+      brightness: null,
+      saturation: null,
+      red: null,
+      blue: null,
+      green: null,
+      sunset: null,
+      sunset: null,
+      sunrise: null,
+      temp: null,
+      code: null,
+      position: null
+    };
   }
 
   getId(): string {
@@ -42,17 +60,9 @@ export class ColorLight extends Component {
   constructor(identifier: string, label: string) {
     super(identifier, label);
     this.type = COLOR_LIGHT_TYPE;
-    this.values = {
-      on: null,
-      brightness: null,
-      saturation: null,
-      red: null,
-      blue: null,
-      green: null,
-    };
   }
 
-  setOn(val: boolean) {
+  setOn(val: number) {
     this.values.on = val;
   }
 
@@ -75,13 +85,11 @@ export class Light extends Component {
   constructor(identifier: string, label: string) {
     super(identifier, label);
     this.type = LIGHT_TYPE;
-    this.values = {
-      on: null,
-      brightness: null,
-    };
+    this.values.on = null;
+    this.values.brightness = null;
   }
 
-  setOn(val: boolean) {
+  setOn(val: number) {
     this.values.on = val;
   }
 
@@ -94,8 +102,6 @@ export class Temperature extends Component {
   constructor(identifier: string, label: string) {
     super(identifier, label);
     this.type = TEMPERATURE_TYPE;
-    this.values = {
-    };
   }
 }
 
@@ -103,23 +109,13 @@ export class Weather extends Component {
   constructor(identifier: string, label: string) {
     super(identifier, label);
     this.type = WEATHER_TYPE;
-    this.values = {
-      sunset: null,
-      sunrise: null,
-      temp: null,
-      code: null,
-      text: null,
-    };
   }
 
-  set(sunset: Moment, sunrise: Moment, temp: number, code: number, text: string) {
-    this.values = {
-      sunset: sunset,
-      sunrise: sunrise,
-      temp: temp,
-      code: code,
-      text: text,
-    };
+  set(sunset: number, sunrise: number, temp: number, code: number) {
+    this.values.sunset = sunset;
+    this.values.sunrise = sunrise;
+    this.values.temp = temp;
+    this.values.code = code;
   }
 }
 
@@ -127,9 +123,7 @@ export class Cover extends Component {
   constructor(identifier: string, label: string) {
     super(identifier, label);
     this.type = COVER_TYPE;
-    this.values = {
-      position: 0.0,
-    };
+    this.values.position = 0.0;
   }
 }
 

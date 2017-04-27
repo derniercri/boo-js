@@ -76,7 +76,7 @@ __PUT /api/v1/components/:id__
 ```
 {
 	"values": {
-		"on": true
+		"on": 0
 	}
 }
 ```
