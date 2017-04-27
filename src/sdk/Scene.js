@@ -16,11 +16,11 @@ export class Trigger {
 }
 
 export class StateChangeAction extends Action {
-  value: any;
+  value: number;
   name: string;
   componentId: string;
 
-  constructor(componentId: string, name: string, value: any) {
+  constructor(componentId: string, name: string, value: number) {
     super();
     this.type = ACTION_STATE_CHANGE;
     this.componentId = componentId;
@@ -45,11 +45,11 @@ export class Scene {
   }
 }
 
-export function parseScenes(data: Array<Object>): Array<Scene> {
+export function parseScenes(data: Array<Scene>): Array<Scene> {
   return data.map((item) => { return parseScene(item) });
 }
 
-export function parseScene(data: Object): Scene {
+export function parseScene(data: Scene): Scene {
   const scene = new Scene();
   if (data.id) { scene.id = data.id; }
   scene.description = data.description;
@@ -60,7 +60,7 @@ export function parseScene(data: Object): Scene {
   return scene;
 }
 
-function parseActions(data: Array<Object>): Array<Action> {
+function parseActions(data: Array<Action>): Array<Action> {
   return data.map((item) => { return parseAction(item) })
 }
 
@@ -79,11 +79,11 @@ function parseAction(data: Object): Action {
 }
 
 
-function parseTriggers(data: Array<Object>): Array<Trigger> {
+function parseTriggers(data: Array<Trigger>): Array<Trigger> {
   return data.map((item) => { return parseTrigger(item) })
 }
 
-function parseTrigger(data: Object): Trigger {
+function parseTrigger(data: Trigger): Trigger {
   const trigger = new Trigger();
   trigger.type = data.type;
 

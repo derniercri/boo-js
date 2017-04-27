@@ -6,8 +6,9 @@
   "repository": "git@github.com:derniercri/boo-js.git",
   "scripts": {
     "build": "./node_modules/.bin/babel src/ -d lib/",
-    "flow": "./node_modules/.bin/flow && ./node_modules/.bin/eslint src/**",
-    "test": "./node_modules/.bin/flow && ./node_modules/.bin/jest"
+    "flow": "./node_modules/.bin/flow",
+    "lint": "./node_modules/.bin/eslint src/**",
+    "test": "./node_modules/.bin/jest"
   },
   "author": "Guillaume Bailleul <laibulle@gmail.com>",
   "license": "ISC",

@@ -5,6 +5,8 @@ import Firebase from 'firebase';
 import { Sdk } from './../../../sdk';
 var authToken = 'some_long_auth_token';
 
+type StreamType = (Array<Object>) => void;
+
 export default class NestStreamingClient {
   token: Object;
   sdk: Sdk;
@@ -14,7 +16,7 @@ export default class NestStreamingClient {
     this.sdk = sdk;
   }
 
-  stream(cb: Function) {
+  stream(cb: StreamType) {
     let self = this;
     if (this.token != null) {
       var client = new Firebase('wss://developer-api.nest.com');

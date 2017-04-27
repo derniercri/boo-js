@@ -26,7 +26,7 @@ export class Sdk {
     this.addComponentCb(component);
   }
 
-  updateConfiguration(name: string, value: any) {
+  updateConfiguration(name: string, value: string) {
     this.info(`Updating configuration ${name} to ${value}`);
     this.configUpdateCb(this.moduleId, name, value);
   }

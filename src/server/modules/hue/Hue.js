@@ -9,7 +9,7 @@ import {
   Configuration,
   ConfigurationField
 } from './../../../sdk';
-import hue, { HueApi } from 'node-hue-api';
+import hue, { HueApi, IUpnpSearchResultItem } from 'node-hue-api';
 import { createComponents } from './factory';
 
 export default class Hue {
@@ -92,7 +92,7 @@ export default class Hue {
   }
 
   find(sdk: Sdk) {
-    hue.nupnpSearch().then((bridges: Array<any>) => {
+    hue.nupnpSearch().then((bridges: Array<IUpnpSearchResultItem>) => {
       bridges.map((bridge) => {
         let api = new HueApi();
         api.registerUser(bridge.ipaddress, '')

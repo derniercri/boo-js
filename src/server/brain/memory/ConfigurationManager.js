@@ -8,9 +8,9 @@ import uuidV4 from 'uuid/v4';
 class ConfigurationItem {
   moduleId: string;
   name: string;
-  value: any;
+  value: string;
 
-  constructor(moduleId: string, name: string, value: any) {
+  constructor(moduleId: string, name: string, value: string) {
     this.moduleId = moduleId;
     this.name = name;
     this.value = value;
@@ -50,7 +50,7 @@ export default class ModuleManager {
     })
   }
 
-  update(moduleId: string, name: string, value: any): void {
+  update(moduleId: string, name: string, value: string): void {
     this.collection = this.collection.map((item) => {
       if (item.moduleId == moduleId && item.name == name) { item.value = value }
       return item;

@@ -127,11 +127,11 @@ export class Cover extends Component {
   }
 }
 
-export function parseComponents(data: Array<Object>): Array<Component> {
+export function parseComponents(data: Array<Component>): Array<Component> {
   return data.map((item) => { return parseComponent(item); })
 }
 
-export function parseComponent(data: Object): Component {
+export function parseComponent(data: Component): Component {
   let component: Component;
 
   switch (data.type) {

@@ -252,11 +252,11 @@ export default class Brain {
   }
 }
 
-function actionFind(commands: Array<string>): ?{name: string, value: any} {
+function actionFind(commands: Array<string>): ?{name: string, value: number} {
   if (commands[0] == 'allume' || commands[0] == 'ouvre')  {
-    return {name: 'on', value: true};
+    return {name: 'on', value: 1};
   } else if(commands[0] == 'éteins' || commands[0] == 'ferme' ) {
-    return {name: 'on', value: false};
+    return {name: 'on', value: 0};
   }
 
   return null;

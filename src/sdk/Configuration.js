@@ -2,12 +2,12 @@
 
 export class ConfigurationField {
   name: string;
-  value: any;
-  defaultValue: any;
+  value: ?string;
+  defaultValue: ?string;
   type: string;
   description: string;
 
-  constructor(name: string, defaultValue: any, type: string, description: string) {
+  constructor(name: string, defaultValue: ?string, type: string, description: string) {
     this.name = name;
     this.defaultValue = defaultValue;
     this.type = type;
@@ -29,7 +29,7 @@ export class Configuration {
 }
 
 
-export function parseConfiguration(data: Array<Object>): Configuration {
+export function parseConfiguration(data: Configuration): Configuration {
   if (data.fields instanceof Array ) {
     return new Configuration(data.fields.map((item) => {
       const field = new ConfigurationField(

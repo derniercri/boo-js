@@ -18,11 +18,11 @@ export class Info {
   }
 }
 
-export function parseInfos(data: Array<Object>): Array<Info> {
+export function parseInfos(data: Array<Info>): Array<Info> {
   return data.map(item => parseInfo(item))
 }
 
-export function parseInfo(data: Object): Info {
+export function parseInfo(data: Info): Info {
   const info = new Info(
     data.id,
     data.name,
