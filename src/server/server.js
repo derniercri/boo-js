@@ -24,6 +24,7 @@ import backgroundApi from './api/background';
 import settingsApi from './api/settings';
 import sceneApi from './api/scene';
 import voiceApi from './api/voice';
+import middlewares from './api/middlewares';
 
 const port = 3000;
 
@@ -50,6 +51,7 @@ let app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/', express.static(__dirname + '/../../public'));
+app.use(middlewares(brain).authMiddleware);
 
 app.get('/api/v1/components', componentsApi(brain).getAll);
 app.put('/api/v1/components/:id', componentsApi(brain).update);

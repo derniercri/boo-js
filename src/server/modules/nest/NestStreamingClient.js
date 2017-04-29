@@ -5,7 +5,7 @@ import Firebase from 'firebase';
 import { Sdk } from './../../../sdk';
 var authToken = 'some_long_auth_token';
 
-type StreamType = (Array<Object>) => void;
+type StreamType = (Object) => void;
 
 export default class NestStreamingClient {
   token: Object;

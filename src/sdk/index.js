@@ -8,3 +8,4 @@ export * from './Module';
 export * from './Scene';
 export * from './Sdk';
 export * from './Api';
+export * from './User';

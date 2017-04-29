@@ -1,7 +1,7 @@
 // @flow
 
 import fs from 'fs';
-import { Configuration, Info } from './../../../sdk';
+import { Configuration, Info, User, parseUsers } from './../../../sdk';
 import Manager from './Manager';
 
 class ConfigurationItem {
@@ -25,11 +25,13 @@ export default class ModuleManager {
   status: {};
   collection: Array<ConfigurationItem>;
   serverId: string;
+  users: Array<User>;
 
   constructor(path: string) {
     this.filePath = path;
     this.status = {};
     this.collection = [];
+    this.users = [new User('admin', 'admin')];
   }
 
   setEnabled(moduleId: string, enabled: boolean): void {
@@ -77,7 +79,8 @@ export default class ModuleManager {
       {
         serverId: this.serverId,
         status: this.status,
-        fields: this.collection
+        fields: this.collection,
+        users: this.users,
       },
       null,
       4
@@ -90,6 +93,7 @@ export default class ModuleManager {
       this.collection = data.fields;
       this.status = data.status;
       this.serverId = data.serverId;
+      this.users = parseUsers(data.users);
     } catch (e) {
       this.save();
     }

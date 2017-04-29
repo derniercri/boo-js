@@ -1,3 +1,5 @@
+// @flow
+
 import Brain from './../brain/Brain';
 import { Weather } from './../../sdk';
 import request from 'request';
