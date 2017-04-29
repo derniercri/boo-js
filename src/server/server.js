@@ -14,6 +14,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import localtunnel from 'localtunnel';
 import { createServer } from 'http';
+import url from 'url';
 
 import componentsApi from './api/components';
 import modulesApi from './api/modules';
@@ -65,11 +66,27 @@ app.get('/api/v1/settings', settingsApi(`http://${brain.getServerId()}.laibulle.
 app.get('/images/background.jpg', backgroundApi(brain).getBackground);
 app.post('/api/v1/voice', voiceApi(brain).create);
 
+let config = { host: 'http://laibulle.com:1234', subdomain: undefined }
+
+if (brain.getServerId() != null) {
+  config.subdomain = brain.getServerId();
+}
+
 let tunnel = localtunnel(
   port,
-  { subdomain: brain.getServerId(), host: 'http://laibulle.com:1234' },
+  config,
   (err, tunnel) => {
     if (err) { logger.error(err); return }
+
+    if (brain.getServerId() == null) {
+       const foundUrl = url.parse(tunnel.url);
+       if (foundUrl.host != null) {
+         const sub = foundUrl.host.split('.', 1)[0];
+         brain.configurationManager.serverId = sub;
+         brain.configurationManager.save();
+       }
+    }
+
     logger.info(tunnel.url);
   });
 

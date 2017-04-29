@@ -3,7 +3,6 @@
 import fs from 'fs';
 import { Configuration, Info } from './../../../sdk';
 import Manager from './Manager';
-import uuidV4 from 'uuid/v4';
 
 class ConfigurationItem {
   moduleId: string;
@@ -30,7 +29,6 @@ export default class ModuleManager {
   constructor(path: string) {
     this.filePath = path;
     this.status = {};
-    this.serverId = uuidV4().split('-').join('');
     this.collection = [];
   }
 
